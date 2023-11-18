@@ -1,8 +1,11 @@
 import React from "react";
 import "../styles/TopicListItem.scss";
 
-const TopicListItem = ({ title, onTopicClick }) => (
-  <div className='topic-list__item' onClick={onTopicClick}>
+const TopicListItem = ({ title, onTopicClick, }) => (
+  <div className='topic-list__item' onClick={() => { 
+    console.log("Click event triggered");
+    onTopicClick(); 
+  }}>
     <span>{title}</span>
   </div>
 );

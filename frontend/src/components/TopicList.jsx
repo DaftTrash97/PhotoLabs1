@@ -3,11 +3,12 @@ import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 
 
-const TopicList = ({ topicData }) => {
+const TopicList = ({ topicData, fetchPhotosByTopic }) => {
+  console.log("fetchPhotosByTopic:", fetchPhotosByTopic);
   return (
     <div className="top-nav-bar__topic-list">
       {topicData.map((topic) => (
-        <TopicListItem key={topic.id} {...topic} />
+        <TopicListItem key={topic.id} {...topic} onTopicClick={() => fetchPhotosByTopic(topic.id)} />
       ))}
     </div>
   );

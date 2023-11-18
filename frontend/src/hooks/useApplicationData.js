@@ -46,6 +46,12 @@ function reducer(state, action) {
         topicData: action.payload,
       };
 
+    case ACTIONS.SET_TOPIC_PHOTOS:
+      return {
+        ...state,
+        photoData: action.payload,
+      };
+
     default:
       return state;
   }
@@ -75,6 +81,17 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.CLOSE_PHOTO_DETAILS_MODAL });
   };
 
+  const fetchPhotosByTopic = (topicId) => {
+    fetch(`http://localhost:8001/api/topics/photos/${topicId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({ type: 'SET_TOPIC_PHOTOS', payload: data });
+      })
+      .catch((error) => {
+        console.error('Error fetching photos:', error);
+      });
+  };
+
   useEffect(() => {
     fetch("/api/photos")
       .then((response) => response.json())
@@ -92,6 +109,7 @@ const useApplicationData = () => {
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal,
+    fetchPhotosByTopic
   };
 };
 

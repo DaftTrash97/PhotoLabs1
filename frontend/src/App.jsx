@@ -4,11 +4,11 @@ import HomeRoute from 'routes/HomeRoute';
 import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
-  const { state } = useApplicationData(); 
+  const { state, fetchPhotosByTopic } = useApplicationData(); 
 
   return (
     <div className="App">
-      <HomeRoute photoData={state.photoData} topicData={state.topicData} /> 
+      <HomeRoute photoData={state.photoData} topicData={state.topicData} fetchPhotosByTopic={fetchPhotosByTopic} /> 
     </div>
   );
 };

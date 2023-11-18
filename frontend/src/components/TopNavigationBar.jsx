@@ -3,7 +3,7 @@ import '../styles/TopNavigationBar.scss'
 import FavBadge from './FavBadge';
 import TopicList from './TopicList';
 
-const TopNavigation = ({topicData, isFavoritedArr}) => {
+const TopNavigation = ({topicData, isFavoritedArr, fetchPhotosByTopic}) => {
 
   const isFavPhotoExist = (isFavoritedArr.length > 0) ? true : false;
   const selected = (isFavoritedArr.length > 0) ? true : false
@@ -11,7 +11,7 @@ const TopNavigation = ({topicData, isFavoritedArr}) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList topicData={topicData} />
+      <TopicList topicData={topicData} fetchPhotosByTopic={fetchPhotosByTopic} />
       <FavBadge 
       isFavPhotoExist={isFavPhotoExist}
       selected={selected}

@@ -6,11 +6,11 @@ import PhotoDetailsModal from './PhotoDetailsModal';
 import useApplicationData, { ACTIONS } from '../hooks/useApplicationData';
 
 const HomeRoute = () => {
-  const { state, updateToFavPhotoIds, setPhotoSelected, onClosePhotoDetailsModal, photoData} = useApplicationData();
+  const { state, updateToFavPhotoIds, setPhotoSelected, onClosePhotoDetailsModal, photoData, fetchPhotosByTopic} = useApplicationData();
 
   return (
     <div className="home-route">
-      <TopNavigationBar isFavoritedArr={state.isFavoritedArr} topicData={state.topicData} />
+      <TopNavigationBar isFavoritedArr={state.isFavoritedArr} topicData={state.topicData} fetchPhotosByTopic={fetchPhotosByTopic}/>
       {state.photoData && (
       <PhotoList
         toggleFavoritedArr={(itemId) =>
