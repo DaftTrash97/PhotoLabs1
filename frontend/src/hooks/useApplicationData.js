@@ -37,7 +37,7 @@ function reducer(state, action) {
         selectedPhoto: null,
         similarPhotos: [],
       };
-    
+
     // Set the photo data in the state
     case ACTIONS.SET_PHOTO_DATA:
       return {

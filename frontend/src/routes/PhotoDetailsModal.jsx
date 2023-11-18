@@ -4,9 +4,9 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
-const PhotoDetailsModal = (props) => { 
+const PhotoDetailsModal = (props) => {
   const { isOpen, onClose, selectedPhoto, similarPhotos, toggleFavoritedArr,
-  photoData } = props;
+    photoData } = props;
 
   //if the modal is not open or there is no photo selected render nothing 
   if (!isOpen || !selectedPhoto) {
@@ -23,7 +23,7 @@ const PhotoDetailsModal = (props) => {
 
       <div className="photo-details-modal__images">
         <PhotoFavButton toggleFavoritedArr={toggleFavoritedArr} itemId={selectedPhoto.Id}
-           />
+        />
         <img
           className="photo-details-modal__image"
           src={selectedPhoto.urls.regular}
@@ -45,7 +45,7 @@ const PhotoDetailsModal = (props) => {
       </div>
 
       <h2 className="photo-details-modal__header">Similar Photos</h2>
-      
+
       <PhotoList photoData={photoData} toggleFavoritedArr={toggleFavoritedArr} itemId={selectedPhoto.id} />
     </div>
 

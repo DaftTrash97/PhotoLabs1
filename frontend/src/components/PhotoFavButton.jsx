@@ -3,7 +3,7 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({toggleFavoritedArr, itemId}) {
+function PhotoFavButton({ toggleFavoritedArr, itemId }) {
   const [isFavorited, setFavorited] = useState(false);
 
   const toggleFavoritedItem = useCallback(() => {
