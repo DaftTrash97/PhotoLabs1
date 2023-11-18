@@ -5,7 +5,8 @@ import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => { 
-  const { isOpen, onClose, selectedPhoto, similarPhotos, toggleFavoritedArr } = props;
+  const { isOpen, onClose, selectedPhoto, similarPhotos, toggleFavoritedArr,
+  photoData } = props;
 
   if (!isOpen || !selectedPhoto) {
     return null;
@@ -44,7 +45,7 @@ const PhotoDetailsModal = (props) => {
 
       <h2 className="photo-details-modal__header">Similar Photos</h2>
       
-      <PhotoList photos={similarPhotos} toggleFavoritedArr={toggleFavoritedArr} itemId={selectedPhoto.id} />
+      <PhotoList photoData={photoData} toggleFavoritedArr={toggleFavoritedArr} itemId={selectedPhoto.id} />
     </div>
 
   );

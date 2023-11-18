@@ -8,7 +8,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute photoData={state.photoData} /> 
+      <HomeRoute photoData={state.photoData} topicData={state.topicData} /> 
     </div>
   );
 };

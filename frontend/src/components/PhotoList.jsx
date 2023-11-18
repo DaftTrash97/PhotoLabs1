@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
-import photos from "mocks/photos";
 
-const PhotoList = ({ toggleFavoritedArr, onPhotoClick, dispatch }) => {
+const PhotoList = ({ photoData, toggleFavoritedArr, onPhotoClick, dispatch }) => {
   
-  const photoItems = photos.map((photo) => (
+  const photoItems = Array.isArray(photoData)
+    ? photoData.map((photo) => (
     <PhotoListItem
       key={photo.id}
       location={photo.location}
@@ -16,8 +16,10 @@ const PhotoList = ({ toggleFavoritedArr, onPhotoClick, dispatch }) => {
       itemId={photo.id}
       dispatch={dispatch}
       onClick={() => onPhotoClick(photo)}
+      similarPhotos = {photo.data}
     />
-  ));
+  ))
+  :null;
 
   return <ul className="photo-list">{photoItems}</ul>;
 };
