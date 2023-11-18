@@ -8,6 +8,8 @@ const TopicList = ({ topicData, fetchPhotosByTopic }) => {
   return (
     <div className="top-nav-bar__topic-list">
       {topicData.map((topic) => (
+        
+        //create onTopicClick function to register click
         <TopicListItem key={topic.id} {...topic} onTopicClick={() => fetchPhotosByTopic(topic.id)} />
       ))}
     </div>

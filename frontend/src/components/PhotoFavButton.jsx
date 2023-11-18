@@ -7,12 +7,14 @@ function PhotoFavButton({toggleFavoritedArr, itemId}) {
   const [isFavorited, setFavorited] = useState(false);
 
   const toggleFavoritedItem = useCallback(() => {
+    //state to track if photo is favorited 
     setFavorited((prevFavorited) => !prevFavorited);
   }, []);
 
+  //handle click event for favorite button
   const handleClick = () => {
-    toggleFavoritedItem();
-    toggleFavoritedArr(itemId);
+    toggleFavoritedItem(); //toggle local state
+    toggleFavoritedArr(itemId);// togle state in parent component 
   }
 
   return (

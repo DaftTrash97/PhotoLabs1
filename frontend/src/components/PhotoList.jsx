@@ -4,6 +4,7 @@ import "../styles/PhotoList.scss";
 
 const PhotoList = ({ photoData, toggleFavoritedArr, onPhotoClick, dispatch }) => {
   
+  //only render photos if photoData is an array
   const photoItems = Array.isArray(photoData)
     ? photoData.map((photo) => (
     <PhotoListItem

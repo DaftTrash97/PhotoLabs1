@@ -8,6 +8,7 @@ const PhotoDetailsModal = (props) => {
   const { isOpen, onClose, selectedPhoto, similarPhotos, toggleFavoritedArr,
   photoData } = props;
 
+  //if the modal is not open or there is no photo selected render nothing 
   if (!isOpen || !selectedPhoto) {
     return null;
   }

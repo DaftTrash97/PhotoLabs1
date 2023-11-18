@@ -4,8 +4,11 @@ import FavBadge from './FavBadge';
 import TopicList from './TopicList';
 
 const TopNavigation = ({topicData, isFavoritedArr, fetchPhotosByTopic}) => {
-
+  
+  //check if there are already favorited phtos 
   const isFavPhotoExist = (isFavoritedArr.length > 0) ? true : false;
+
+  //check if photo is favorited
   const selected = (isFavoritedArr.length > 0) ? true : false
 
   return (
