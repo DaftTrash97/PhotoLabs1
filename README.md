@@ -5,6 +5,16 @@ The PhotoLabs project for the Web Development React course programming.
 
 ## Setup
 
+```sh
+npm install --save-dev @testing-library/react-hooks
+```
+
+React-hooks-testing-library does not come bundled with a version of react to allow you to install the specific version you want to test against. It also does not come installed with a specific renderer, we currently support react-test-renderer and react-dom. You only need to install one of them, however, if you do have both installed, we will use react-test-renderer as the default. 
+
+```sh
+npm install react@^16.9.0
+npm install --save-dev react-test-renderer@^16.9.0
+```
 Install dependencies with `npm install` in each respective `/frontend` and `/backend`.
 
 ## [Frontend] Running Webpack Development Server
