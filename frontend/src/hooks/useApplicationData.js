@@ -89,7 +89,7 @@ const useApplicationData = () => {
   };
 
   const fetchPhotosByTopic = (topicId) => {
-    fetch(`http://localhost:8001/api/topics/photos/${topicId}`)
+    fetch(`/api/topics/photos/${topicId}`)
       .then((response) => response.json())
       .then((data) => {
         dispatch({ type: 'SET_TOPIC_PHOTOS', payload: data });
