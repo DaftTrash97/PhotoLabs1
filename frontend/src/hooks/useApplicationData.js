@@ -27,14 +27,14 @@ function reducer(state, action) {
       const selectedPhoto = action.payload.photo;
       const topicId = selectedPhoto && selectedPhoto.topic;
       const similarPhotos = topicId ? fetchPhotosByTopic(topicId) : [];
-      
+
       return {
         ...state,
         isModalOpen: true,
         selectedPhoto: action.payload.photo,
         similarPhotos,
       };
-      
+
     // Close the photo details modal
     case ACTIONS.CLOSE_PHOTO_DETAILS_MODAL:
       return {

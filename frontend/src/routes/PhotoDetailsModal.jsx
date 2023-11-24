@@ -5,10 +5,17 @@ import PhotoList from "components/PhotoList";
 import PhotoFavButton from "components/PhotoFavButton";
 
 const PhotoDetailsModal = (props) => {
-  const { isOpen, onClose, selectedPhoto, toggleFavoritedArr, photoData, fetchPhotosByTopic } =
-    props;
+  const {
+    isOpen,
+    onClose,
+    selectedPhoto,
+    toggleFavoritedArr,
+    photoData,
+    fetchPhotosByTopic,
+    onPhotoClick
+  } = props;
 
-     // Use useEffect to fetch similar photos when selectedPhoto changes
+  // Use useEffect to fetch similar photos when selectedPhoto changes
   useEffect(() => {
     if (selectedPhoto && selectedPhoto.topic) {
       fetchPhotosByTopic(selectedPhoto.topic);
@@ -56,9 +63,12 @@ const PhotoDetailsModal = (props) => {
       <h2 className="photo-details-modal__header">Similar Photos</h2>
 
       <PhotoList
-        photoData={photoData.filter(photo => photo.topic === selectedPhoto.topic)}
+        photoData={photoData.filter(
+          (photo) => photo.topic === selectedPhoto.topic
+        )}
         toggleFavoritedArr={toggleFavoritedArr}
         itemId={selectedPhoto.id}
+        onPhotoClick={onPhotoClick}
       />
     </div>
   );

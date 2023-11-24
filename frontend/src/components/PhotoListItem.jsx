@@ -14,11 +14,12 @@ const PhotoListItem = (props) => {
   } = props;
 
   return (
-    <div className="photo-list__item" onClick={onClick}>
+    <div className="photo-list__item">
       <PhotoFavButton toggleFavoritedArr={toggleFavoritedArr} itemId={itemId} />
 
       <img
         className="photo-list__image"
+        onClick={onClick}
         src={imageSource}
         alt={`Photo by ${username}`}
       />
