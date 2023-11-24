@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/PhotoDetailsModal.scss";
 import closeSymbol from "../assets/closeSymbol.svg";
 import PhotoList from "components/PhotoList";
 import PhotoFavButton from "components/PhotoFavButton";
 
 const PhotoDetailsModal = (props) => {
-  const { isOpen, onClose, selectedPhoto, toggleFavoritedArr, photoData } =
+  const { isOpen, onClose, selectedPhoto, toggleFavoritedArr, photoData, fetchPhotosByTopic } =
     props;
+
+     // Use useEffect to fetch similar photos when selectedPhoto changes
+  useEffect(() => {
+    if (selectedPhoto && selectedPhoto.topic) {
+      fetchPhotosByTopic(selectedPhoto.topic);
+    }
+  }, [selectedPhoto, fetchPhotosByTopic]);
 
   //if the modal is not open or there is no photo selected render nothing
   if (!isOpen || !selectedPhoto) {
@@ -49,7 +56,7 @@ const PhotoDetailsModal = (props) => {
       <h2 className="photo-details-modal__header">Similar Photos</h2>
 
       <PhotoList
-        photoData={photoData}
+        photoData={photoData.filter(photo => photo.topic === selectedPhoto.topic)}
         toggleFavoritedArr={toggleFavoritedArr}
         itemId={selectedPhoto.id}
       />

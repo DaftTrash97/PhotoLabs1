@@ -36,6 +36,7 @@ const HomeRoute = () => {
         similarPhotos={state.similarPhotos}
         toggleFavoritedArr={(itemId) => updateToFavPhotoIds(itemId)}
         photoData={state.photoData}
+        fetchPhotosByTopic={fetchPhotosByTopic}
       />
     </div>
   );

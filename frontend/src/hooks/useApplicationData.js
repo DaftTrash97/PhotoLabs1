@@ -24,11 +24,17 @@ function reducer(state, action) {
 
     // Set the selected photo for the modal
     case ACTIONS.SET_PHOTO_SELECTED:
+      const selectedPhoto = action.payload.photo;
+      const topicId = selectedPhoto && selectedPhoto.topic;
+      const similarPhotos = topicId ? fetchPhotosByTopic(topicId) : [];
+      
       return {
         ...state,
         isModalOpen: true,
         selectedPhoto: action.payload.photo,
+        similarPhotos,
       };
+      
     // Close the photo details modal
     case ACTIONS.CLOSE_PHOTO_DETAILS_MODAL:
       return {
