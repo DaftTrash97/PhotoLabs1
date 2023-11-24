@@ -105,29 +105,20 @@ const useApplicationData = () => {
       });
   };
 
-  //fetch photo data
-  useEffect(() => {
-    fetch("/api/photos")
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
-      })
-      .catch((error) => {
-        console.error("Error fetching photos:", error);
-      });
-  }, []);
+//fetch photo and topic data 
+useEffect(() => {
+  const fetchPhotoData = fetch("/api/photos").then((response) => response.json());
+  const fetchTopicData = fetch("/api/topics").then((response) => response.json());
 
-  //fetch topic data
-  useEffect(() => {
-    fetch("/api/topics")
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data });
-      })
-      .catch((error) => {
-        console.error("Error fetching topics:", error);
-      });
-  }, []);
+  Promise.all([fetchPhotoData, fetchTopicData])
+    .then(([photoData, topicData]) => {
+      dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData });
+      dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData });
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+}, []);
 
   return {
     state,

@@ -12,7 +12,7 @@ const PhotoDetailsModal = (props) => {
     toggleFavoritedArr,
     photoData,
     fetchPhotosByTopic,
-    onPhotoClick
+    onPhotoClick,
   } = props;
 
   // Use useEffect to fetch similar photos when selectedPhoto changes

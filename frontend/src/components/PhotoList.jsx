@@ -8,7 +8,6 @@ const PhotoList = ({
   onPhotoClick,
   dispatch,
 }) => {
-  
   //only render photos if photoData is an array
   const photoItems = Array.isArray(photoData)
     ? photoData.map((photo) => (

@@ -4,7 +4,7 @@ import HomeRoute from "routes/HomeRoute";
 import useApplicationData from "hooks/useApplicationData";
 
 const App = () => {
-  const { state, fetchPhotosByTopic, setPhotoSelected} = useApplicationData();
+  const { state, fetchPhotosByTopic, setPhotoSelected } = useApplicationData();
 
   const handlePhotoClick = (photo) => {
     // Set the clicked photo as the selected photo to open the modal
