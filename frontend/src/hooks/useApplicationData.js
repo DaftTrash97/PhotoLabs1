@@ -1,13 +1,13 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from "react";
 
 // Define action types for the reducer
 export const ACTIONS = {
-  FAV_PHOTO_TOGGLED: 'FAV_PHOTO_TOGGLED',
-  SET_PHOTO_SELECTED: 'SET_PHOTO_SELECTED',
-  CLOSE_PHOTO_DETAILS_MODAL: 'CLOSE_PHOTO_DETAILS_MODAL',
-  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
-  SET_TOPIC_PHOTOS: 'SET_TOPIC_PHOTOS',
+  FAV_PHOTO_TOGGLED: "FAV_PHOTO_TOGGLED",
+  SET_PHOTO_SELECTED: "SET_PHOTO_SELECTED",
+  CLOSE_PHOTO_DETAILS_MODAL: "CLOSE_PHOTO_DETAILS_MODAL",
+  SET_PHOTO_DATA: "SET_PHOTO_DATA",
+  SET_TOPIC_DATA: "SET_TOPIC_DATA",
+  SET_TOPIC_PHOTOS: "SET_TOPIC_PHOTOS",
 };
 
 // Reducer function to handle different actions and update the state
@@ -92,10 +92,10 @@ const useApplicationData = () => {
     fetch(`/api/topics/photos/${topicId}`)
       .then((response) => response.json())
       .then((data) => {
-        dispatch({ type: 'SET_TOPIC_PHOTOS', payload: data });
+        dispatch({ type: "SET_TOPIC_PHOTOS", payload: data });
       })
       .catch((error) => {
-        console.error('Error fetching photos:', error);
+        console.error("Error fetching photos:", error);
       });
   };
 
@@ -107,11 +107,11 @@ const useApplicationData = () => {
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
       })
       .catch((error) => {
-        console.error('Error fetching photos:', error);
+        console.error("Error fetching photos:", error);
       });
   }, []);
 
-  //fetch topic data 
+  //fetch topic data
   useEffect(() => {
     fetch("/api/topics")
       .then((response) => response.json())
@@ -119,7 +119,7 @@ const useApplicationData = () => {
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data });
       })
       .catch((error) => {
-        console.error('Error fetching topics:', error);
+        console.error("Error fetching topics:", error);
       });
   }, []);
 
@@ -128,7 +128,7 @@ const useApplicationData = () => {
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal,
-    fetchPhotosByTopic
+    fetchPhotosByTopic,
   };
 };
 
