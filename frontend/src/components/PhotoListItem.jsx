@@ -11,11 +11,16 @@ const PhotoListItem = (props) => {
     profile,
     toggleFavoritedArr,
     onClick,
+    isFavoritedArr,
   } = props;
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton toggleFavoritedArr={toggleFavoritedArr} itemId={itemId} />
+      <PhotoFavButton
+        toggleFavoritedArr={toggleFavoritedArr}
+        itemId={itemId}
+        isFavoritedArr={isFavoritedArr}
+      />
 
       <img
         className="photo-list__image"

@@ -13,6 +13,7 @@ const PhotoDetailsModal = (props) => {
     photoData,
     fetchPhotosByTopic,
     onPhotoClick,
+    isFavoritedArr,
   } = props;
 
   // Use useEffect to fetch similar photos when selectedPhoto changes
@@ -38,7 +39,8 @@ const PhotoDetailsModal = (props) => {
       <div className="photo-details-modal__images">
         <PhotoFavButton
           toggleFavoritedArr={toggleFavoritedArr}
-          itemId={selectedPhoto.Id}
+          itemId={selectedPhoto.id}
+          isFavoritedArr={isFavoritedArr}
         />
         <img
           className="photo-details-modal__image"
@@ -69,6 +71,7 @@ const PhotoDetailsModal = (props) => {
         toggleFavoritedArr={toggleFavoritedArr}
         itemId={selectedPhoto.id}
         onPhotoClick={onPhotoClick}
+        isFavoritedArr={isFavoritedArr}
       />
     </div>
   );

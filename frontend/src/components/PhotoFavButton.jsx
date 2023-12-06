@@ -1,25 +1,20 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
 
-function PhotoFavButton({ toggleFavoritedArr, itemId }) {
-  const [isFavorited, setFavorited] = useState(false);
-
-  const toggleFavoritedItem = useCallback(() => {
-    //state to track if photo is favorited
-    setFavorited((prevFavorited) => !prevFavorited);
-  }, []);
+function PhotoFavButton({ toggleFavoritedArr, itemId, isFavoritedArr }) {
+  const inFavoritedArr = isFavoritedArr?.includes(itemId); // check if current item is favorited 
 
   //handle click event for favorite button
-  const handleClick = () => {
-    toggleFavoritedItem(); //toggle local state
+  const handleClick = (event) => {
+    event.preventDefault();
     toggleFavoritedArr(itemId); // togle state in parent component
   };
 
   return (
     <div className="photo-list__fav-icon" onClick={handleClick}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={isFavorited} />
+        <FavIcon selected={inFavoritedArr} />
       </div>
     </div>
   );

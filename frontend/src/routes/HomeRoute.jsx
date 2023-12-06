@@ -27,6 +27,7 @@ const HomeRoute = () => {
           toggleFavoritedArr={(itemId) => updateToFavPhotoIds(itemId)}
           onPhotoClick={(photo) => setPhotoSelected(photo)}
           photoData={state.photoData}
+          isFavoritedArr={state.isFavoritedArr}
         />
       )}
       <PhotoDetailsModal
@@ -38,6 +39,7 @@ const HomeRoute = () => {
         photoData={state.photoData}
         fetchPhotosByTopic={fetchPhotosByTopic}
         onPhotoClick={(photo) => setPhotoSelected(photo)}
+        isFavoritedArr={state.isFavoritedArr}
       />
     </div>
   );

@@ -7,6 +7,7 @@ const PhotoList = ({
   toggleFavoritedArr,
   onPhotoClick,
   dispatch,
+  isFavoritedArr,
 }) => {
   //only render photos if photoData is an array
   const photoItems = Array.isArray(photoData)
@@ -22,6 +23,7 @@ const PhotoList = ({
           dispatch={dispatch}
           onClick={() => onPhotoClick(photo)}
           similarPhotos={photo.data}
+          isFavoritedArr={isFavoritedArr}
         />
       ))
     : null;
